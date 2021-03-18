@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>P5 Whiteboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="scripts/p5.min.js" defer></script>
+    <script src="scripts/dictionary.js" defer></script>
+    <script src="scripts/serverCommunicator.js" defer></script>
+
+    <script src="scripts/shape.js" defer></script>
+    <script src="scripts/whiteboard.js" defer></script>
+
+    <script src="scripts/chatDrawer.js" defer></script>
+    <script src="scripts/whiteboardSyncer.js" defer></script>
+
+    <script src="scripts/serverCommsManager.js" defer></script>    
+    <script src="scripts/p5Whiteboard.js" defer></script>
+  </head>
+
+  <body>
+  <table id="outerTable">
+    <tr>
+      <th id="topbar" colspan="2"><!--topbar-->
+        <h1>P5 Whiteboard</h1>
+        <p id="roomDataShower"></p>
+        <button onclick="joinRoom()">Join room</button>
+        <button onclick="createRoom()">Create new room</button>
+        <button onclick="null()">Leave this whiteboard</button>
+        <button onclick="null()">Save whiteboard contents</button>
+      </th>
+    </tr>
+
+    <tr>
+      <td id="whiteboardArea">
+        <div id="canvas"></div>
+        <br>
+        <br>
+
+        <label for="penSize">Pen Size</label>
+        <input type="range" id="penSize" value="2" autocomplete="off">
+
+        <label for="color" style="margin-left: 20px">Color</label>
+        <select id="color" autocomplete="off">
+          <option value="[0, 0, 0]" selected>Black</option>
+          <option value="[100, 0, 0]">Red</option>
+          <option value="[0, 100, 0]">Green</option>
+          <option value="[0, 0, 100]">Blue</option>
+        </select>
+
+        <label for="eraserCheckbox" style="margin-left: 20px">Eraser on</label>
+        <input type="checkbox" id="eraserCheckbox" unchecked>
+        
+        <button style="margin-left: 20px" onclick="clearWhiteboard()">Clear All</button>
+      </td>
+
+      <td id="chatAreaHolder">
+        <!-- these divs are like this so that I can use js to set the height of the middle one -->
+        <div id="chatAreaTitle">
+        <h2>Chat</h2>
+        <hr>
+        </div>
+        
+        <div id="chatArea"></div>
+
+        <div id="chatAreaBottom">
+        <input type="text" id="messageInputBox">
+        <button id="sendMessageButton" onclick="sendMessage()">Send message</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  </body>
+</html>
